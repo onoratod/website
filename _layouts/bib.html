@@ -3,20 +3,28 @@
 
 <div class="row">
   <div class="col-sm-2 abbr">
-  {% if entry.abbr %}
-    {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
+  {% for item in entry.abbr %}
+  {% if item %}
+    {% if site.data.venues[item] %}
+    <abbr class="badge"><a href="{{site.data.venues[item].url}}" target="_blank">{{entry.abbr}}</a></abbr>
     {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
+    <abbr class="badge">{{item}}</abbr>
     {% endif %}
   {% endif %}
+  {% endfor %}
   </div>
 
   <div id="{{entry.key}}" class="col-sm-8">
     {% if entry.type == "thesis" %}
       {{reference}}
     {% else %}
-      <div class="title">{{entry.title}}</div>
+      <div class="title">
+        {% if entry.abstract %}
+          <a class="{% if entry.abstract %} has-abstract abstract {% endif %}" role="button">{{entry.title}}</a>
+        {% else %}
+          {{ entry.title }}
+        {% endif %}
+      </div>
       <div class="author">
         {% for author in entry.author_array %}
           {% assign author_is_self = false %}
@@ -34,7 +42,7 @@
               {% endif %}
             {% endfor %}
           {% endif %}
-          
+
           {% if forloop.length == 1 %}
             {% if author_is_self %}
               <em>{{author.last}}, {{author.first}}</em>
@@ -80,14 +88,11 @@
     {% endif %}
 
     <div class="links">
-    {% if entry.abstract %}
+    <!--{% if entry.abstract %}
       <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    {% endif %}
+    {% endif %}-->
     {% if entry.arxiv %}
       <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
-    {% endif %}
-    {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
     {% endif %}
     {% if entry.html %}
       <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank">HTML</a>
@@ -97,6 +102,27 @@
       <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
       {% else %}
       <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
+      {% endif %}
+    {% endif %}
+    {% if entry.slides %}
+      {% if entry.slides contains '://' %}
+      <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank">SLIDES</a>
+      {% else %}
+      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">SLIDES</a>
+      {% endif %}
+    {% endif %}
+    {% if entry.code %}
+      {% if entry.code contains '://' %}
+      <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank">CODE</a>
+      {% else %}
+      <a href="{{ entry.code | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">CODE</a>
+      {% endif %}
+    {% endif %}
+    {% if entry.data %}
+      {% if entry.data contains '://' %}
+      <a href="{{ entry.data }}" class="btn btn-sm z-depth-0" role="button" target="_blank">DATA</a>
+      {% else %}
+      <a href="{{ entry.data | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">DATA</a>
       {% endif %}
     {% endif %}
     {% if entry.supp %}
@@ -109,21 +135,11 @@
     {% if entry.blog %}
       <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Blog</a>
     {% endif %}
-    {% if entry.code %}
-      <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Code</a>
-    {% endif %}
     {% if entry.poster %}
       {% if entry.poster contains '://' %}
       <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
       {% else %}
       <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
-      {% endif %}
-    {% endif %}
-    {% if entry.slides %}
-      {% if entry.slides contains '://' %}
-      <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
-      {% else %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
       {% endif %}
     {% endif %}
     {% if entry.website %}
@@ -135,13 +151,6 @@
     {% if entry.abstract %}
     <div class="abstract hidden">
       <p>{{ entry.abstract }}</p>
-    </div>
-    {% endif %}
-
-    <!-- Hidden bibtex block -->
-    {% if entry.bibtex_show %}
-    <div class="bibtex hidden">
-      {% highlight bibtex %}{{ entry.bibtex }}{% endhighlight %}
     </div>
     {% endif %}
   </div>

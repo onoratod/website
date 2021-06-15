@@ -3,13 +3,12 @@
     <!-- Nav Bar -->
     <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
     <div class="container">
-      {% if page.title != "about" %}
       <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl | prepend: site.url }}/">
-       {% if site.title == "blank" %}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}  {{ site.last_name }}{% else %}{{ site.title }}{% endif %}
+       <span class="font-weight-bold">{{ site.first_name }}</span> <span class="header-last font-weight-bold">{{ site.last_name }}</span>
       </a>
-      {% elsif site.enable_navbar_social %}
+      {% if site.show_social_icons %}
         <!-- Social Icons -->
-        <div class="navbar-brand social">
+        <div class="row ml-1 ml-sm-0">
           {% include social.html %}
         </div>
       {% endif %}
@@ -23,6 +22,7 @@
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <!-- About -->
+          {% if site.about_in_nav %}
           <li class="nav-item {% if page.title == 'about' %}active{% endif %}">
             <a class="nav-link" href="{{ '/' | relative_url }}">
               about
@@ -31,6 +31,7 @@
               {% endif %}
             </a>
           </li>
+          {% endif %}
           {% if site.blog_name %}
           <!-- Blog -->
           <li class="nav-item {% if page.url contains 'blog' %}active{% endif %}">
@@ -39,6 +40,14 @@
               {% if page.title == "blog" %}
               <span class="sr-only">(current)</span>
               {% endif %}
+            </a>
+          </li>
+          {% endif %}
+          {% if site.cv %}
+          <!-- CV -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.cv | relative_url }}">
+              cv
             </a>
           </li>
           {% endif %}
@@ -56,14 +65,30 @@
           </li>
           {% endif %}
           {% endfor %}
+          <li class="nav-item dropdown">
+              <a href="#" class="nav-link" data-toggle="dropdown">resources</a>
+              <div class="dropdown-menu">
+                  {% for section in site.data.resources %}
+                      {% if section.name %}
+                        <h6 class="dropdown-header">{{ section.name }}</h6>
+                          {% for link in section.links %}
+                            {% if link.url %}
+                              <a href="{{ link.url | relative_url }}" class="dropdown-item">{{ link.name }}</a>
+                            {% endif %}
+                          {% endfor %}
+                      {% endif %}
+                  {% endfor %}
+              </div>
+          </li>
           {% if site.enable_darkmode %}
             <div class = "toggle-container">
               <a id = "light-toggle">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
+                  <i class="bi bi-sun"></i>
+                  <i class="bi bi-sun-fill"></i>
               </a>
             </div>
           {% endif %}
+
         </ul>
       </div>
     </div>

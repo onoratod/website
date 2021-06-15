@@ -4,10 +4,12 @@
  ******************************************************************************/
 
 
+
 // Colors
 $red-color:           #FF3636 !default;
 $red-color-dark:      #B71C1C !default;
 $orange-color:        #F29105 !default;
+$light-orange-color:  lighten($orange-color, 25%);
 $blue-color:          #0076df !default;
 $blue-color-dark:     #00369f !default;
 $cyan-color:          #2698BA !default;
@@ -30,9 +32,11 @@ $grey-color-dark:     darken($grey-color, 25%);
 $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
+$sidebar-bg:          darken($white-color, 5%);
+$grey-color-extralight: darken($white-color, 3%);
 
-// Theme colors
 
-$code-bg-color-light:     rgba($purple-color, 0.05);
-$code-bg-color-dark:      #2c3237 !default;
-
+$dm-grey: #c7bebe !default;
+$dm-black: #131418 !default;
+$light-dm-black: lighten($dm-black, 4%);
+$dm-sidebar-bg: lighten($dm-black, 15%);
