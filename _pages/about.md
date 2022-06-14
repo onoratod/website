@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a first year PhD student studying economics at Columbia University. My broad research interests are in labor and economic history with a focus on racial and income inequality. I am also interested in how social networks affect various outcomes such as economic mobility, prison re-entry, etc.
+I am a second year PhD student studying economics at Columbia University. My broad research interests are in labor and economic history with a focus on racial and income inequality.
 
 Prior to starting my PhD I attended undergraduate at the University of Pennsylvania, worked as a pre-doctoral fellow at Opportunity Insights, and worked as a research assistant for Professor Dave Donaldson.
 
