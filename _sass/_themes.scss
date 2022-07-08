@@ -5,9 +5,9 @@
 :root {
   --global-bg-color: #{$white-color};
   --global-text-color: #{$black-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$light-purple-color};
-  --global-footer-bg-color: #{$grey-color-dark};
+  --global-theme-color: #{$drac-bluish}; //#{$purple-color};
+  --global-hover-color: #{$light-drac-bluish}; //#{$light-purple-color};
+  --global-footer-bg-color: #{$drac-bluish}; //#{$grey-color-dark};
   --global-dropdown-hover: #{$white-color};
   --global-footer-text-color: #{$grey-color-light};
   --global-footer-link-color: #{$white-color};
@@ -23,7 +23,7 @@
     padding-top: 10px;
     display : block;
     &:hover {
-      color: $light-purple-color;
+      color: $light-drac-bluish; //$light-purple-color;
     }
     &:active {
       -webkit-transform: scale(0.9, 0.9);
@@ -35,12 +35,12 @@
 html[data-theme='dark'] {
   --global-bg-color: #{$dm-black};
   --global-text-color: #{$dm-grey};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$light-cyan-color};
+  --global-theme-color: #{$drac-purple}; //#{$cyan-color};
+  --global-hover-color: #{$light-drac-pink}; // #{$light-cyan-color};
   --global-dropdown-hover: #{$dm-black};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$dm-black};
+  --global-footer-bg-color: #{$drac-grey};
+  --global-footer-text-color: #{$dm-grey};
+  --global-footer-link-color: #{$drac-purple};
   --global-icon-color: #{$dm-grey};
   --header-border-color: #{$dm-grey};
   --global-sidebar-bg: #{$dm-sidebar-bg};
@@ -52,7 +52,7 @@ html[data-theme='dark'] {
     padding-top: 10px;
     display : block;
     &:hover {
-      color: $light-cyan-color;
+      color: var(--global-hover-color);
     }
     &:active {
       -webkit-transform: scale(0.9, 0.9);

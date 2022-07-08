@@ -99,8 +99,9 @@ a, table.table a {
 }
 
 .author-blurb {
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 1rem;
+  opacity: 0.9;
 }
 
 .author-bio {
@@ -116,6 +117,7 @@ a, table.table a {
   box-shadow: none;
   border-bottom: 1px solid var(--header-border-color);
   opacity: 0.95;
+  font-weight: 400;
   background-color: var(--global-bg-color);
 }
 .navbar.navbar-light {
@@ -130,6 +132,8 @@ a, table.table a {
   }
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-family: 500;
+    transition: 0.15s;
     &:hover {
       color: var(--global-hover-color);
     }
@@ -233,7 +237,7 @@ footer.fixed-bottom {
     color: var(--global-footer-link-color);
     text-decoration: underline;
     &:hover {
-      color: pink;
+      color: var(--global-hover-color);
       text-decoration: underline;
     }
   }
@@ -528,6 +532,10 @@ html.transition *:after {
 }
 
 .navbar-brand:hover > .header-last {
+  color: var(--global-hover-color);
+}
+
+.navbar-brand:hover > .header-first {
   color: var(--global-hover-color);
 }
 
