@@ -42,10 +42,19 @@ $light-dm-black: lighten($dm-black, 4%);
 $dm-sidebar-bg: lighten($dm-black, 15%);
 
 // Dracula
-$drac-bluish: #6272a4 !default;
+$drac-bluish: rgb(98, 114, 164) !default;
+$drac-bluish-opaque: rgba(98, 114, 164, 0.5) !default;
 $drac-grey: #44475a !default;
 $drac-pink: #ff79c6 !default;
 $light-drac-pink: lighten($drac-pink, 7%);
-$light-drac-bluish: lighten($drac-bluish, 25%);
-$drac-purple: #bd93f9 !default;
+$light-drac-bluish: lighten($drac-bluish, 5%);
+$drac-purple: rgb(189, 147, 249) !default;
+$drac-purple-opaque: rgba(189, 147, 249, 0.5) !default;
 $light-drac-purple: lighten($drac-purple, 8%);
+
+// Teals
+$teal: #18978F !default;
+$light-teal: lighten($teal, 10%);
+
+$dm-teal: #0096FF !default;
+$dm-light-teal: lighten($dm-teal, 25%);
