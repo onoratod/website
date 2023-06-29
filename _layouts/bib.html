@@ -2,7 +2,7 @@
 ---
 
 <div class="row">
-  <div class="col-sm-2 abbr">
+  <!--<div class="col-sm-2 abbr">
   {% for item in entry.abbr %}
   {% if item %}
     {% if site.data.venues[item] %}
@@ -12,7 +12,7 @@
     {% endif %}
   {% endif %}
   {% endfor %}
-  </div>
+  </div>-->
 
   <div id="{{entry.key}}" class="col-sm-8">
     {% if entry.type == "thesis" %}
@@ -26,10 +26,11 @@
         {% endif %}
       </div>
       <div class="author">
+        
         {% for author in entry.author_array %}
           {% assign author_is_self = false %}
-          {% if author.last == site.scholar.last_name%}
-            {% if site.scholar.first_name contains author.first%}
+          {% if author.last == site.scholar.last_name %}
+            {% if site.scholar.first_name contains author.first %}
               {% assign author_is_self = true %}
             {% endif %}
           {% endif %}
@@ -43,9 +44,15 @@
             {% endfor %}
           {% endif %}
 
+          {% if forloop.length >= 1 %}
+            {% if forloop.first %}
+              <a style="border-bottom: 0px; cursor: default">with</a>
+            {% endif %}
+          {% endif %}
+
           {% if forloop.length == 1 %}
             {% if author_is_self %}
-              <em>{{author.last}}, {{author.first}}</em>
+              <!--<em>{{author.last}}, {{author.first}}</em>-->
             {% else %}
               {{author.last}}, {{author.first}}
             {% endif %}
@@ -82,7 +89,7 @@
         <em>In {{entry.booktitle}}</em>
       {% endif %}
       {% if entry.year %}
-        {{entry.year}}
+        ({{entry.year}})
       {% endif %}
       </div>
     {% endif %}
