@@ -23,6 +23,12 @@ nav: false
       class="w-100 shadow rounded mb-4"
       alt=""
     />
+
+        <img
+      src="/assets/img/cats/alexa_pretty.jpeg"
+      class="w-100 shadow rounded mb-4"
+      alt=""
+    />
   </div>
 
   <div class="col-lg-4 mb-4 mb-lg-0">
@@ -34,6 +40,13 @@ nav: false
 
     <img
       src="/assets/img/cats/alexa_sleep.jpeg"
+      class="w-100 shadow rounded mb-4"
+      alt=""
+    />
+
+
+    <img
+      src="/assets/img/cats/alexa_tongue.jpeg"
       class="w-100 shadow rounded mb-4"
       alt=""
     />
@@ -52,4 +65,8 @@ nav: false
       alt=""
     />
   </div>
+
+  
+
+  
 </div>
