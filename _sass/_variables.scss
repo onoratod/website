@@ -28,18 +28,24 @@ $yellow-color:        #efcc00 !default;
 $grey-color:          #828282 !default;
 $grey-color-light:    lighten($grey-color, 40%);
 $grey-color-dark:     darken($grey-color, 25%);
+$dark-pink:           darken(pink, 10%);
 
-$white-color: #f8f8f2 !default; //#ffffff !default;
+$muted-light:       rgb(111, 110, 105);
+
+$white-color: rgb(255, 252, 240) !default; //f8f8f2 !default; //#ffffff !default;
 $black-color: #000000 !default;
 
 $sidebar-bg:          darken($white-color, 5%);
 $grey-color-extralight: darken($white-color, 3%);
 
 
-$dm-grey:  #f8f8f2 !default; //#c7bebe !default;
+$dm-grey:  rgb(206, 205, 195); //#f8f8f2 !default; //#c7bebe !default;
 $dm-black: #282a36 !default; //#131418 !default;
 $light-dm-black: lighten($dm-black, 4%);
 $dm-sidebar-bg: lighten($dm-black, 15%);
+
+$muted-dark:        rgb(135,133,128);
+
 
 // Dracula
 $drac-bluish: rgb(98, 114, 164) !default;
