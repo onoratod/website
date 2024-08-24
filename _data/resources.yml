@@ -5,7 +5,7 @@
     - name: STATA
       url: #"/resources/stata/"
     - name: SAS
-      url: "/resources/sas/"
+      url: "https://cen-sas-intro.netlify.app/intro.html"
     - name: Stata
       url: "/stata-tips"
 

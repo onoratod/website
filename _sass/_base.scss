@@ -12,13 +12,22 @@ p, h1, h2, h3, h4, h5, h6, em, div, span, strong {
 a, table.table a {
   color: var(--global-text-color);
   &:hover {
-    color: var(--global-theme-color);
+    color: var(--global-hover-color);
     text-decoration: underline;
   }
   &:hover:after {
     //width: 100%;
   }
 }
+
+h2 {
+  font-weight: 500;
+}
+
+p {
+  font-size: 13pt;
+}
+
 
 
 // Math
@@ -111,6 +120,7 @@ a, table.table a {
   margin: 0 auto;
   p {
     color: var(--global-muted);
+    font-size: 13pt;
   }
 }
 
@@ -230,18 +240,19 @@ a, table.table a {
 
 // Footer
 footer.fixed-bottom {
-  background-color: var(--global-footer-bg-color);
+  background-color: var(--global-bg-color);
+  opacity: 0.95;
   font-size: 0.75rem;
   .container {
-    color: var(--global-footer-text-color);
+    color: var(--global-muted); //var(--global-footer-text-color);
     padding-top: 9px;
     padding-bottom: 8px;
   }
   a {
-    color: var(--global-footer-link-color);
+    color: var(--global-text-color); //var(--global-footer-link-color);
     text-decoration: underline;
     &:hover {
-      color: var(--global-footer-hover-color);
+      color: var(--global-hover-color);
       text-decoration: underline;
     }
   }
@@ -255,9 +266,9 @@ footer.sticky-bottom {
 }
 
 .bi-info-circle {
-  color: var(--global-footer-text-color);
+  color: var(--global-text-color); //var(--global-footer-text-color);
   &:hover {
-    color: var(--global-footer-hover-color);
+    color: var(--global-hover-color);
     cursor: pointer;
   }
   &:active {
